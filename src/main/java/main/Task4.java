@@ -24,8 +24,6 @@ public class Task4 {
             }
         }
 
-
-
         session.flush();
         transaction.commit();
         session.close();
