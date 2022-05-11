@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 .idea/
+SQLDump/
 *.iws
 *.iml
 *.ipr
