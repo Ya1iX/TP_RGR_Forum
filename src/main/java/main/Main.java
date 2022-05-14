@@ -11,7 +11,7 @@ public class Main {
         Tasks.secondTask();
 
         //3. Поиск среди сообщений по ключевым словам/фразам
-        Tasks.thirdTask("разработка");
+        Tasks.thirdTask("Java");
 
         //4. Установить рейтинг топика из расчёта +1 за каждые 3 сообщения в нём
         Tasks.fourthTask();

@@ -10,7 +10,6 @@ import org.hibernate.Transaction;
 import utils.NewHibernateUtil;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class Tasks {
     private static SessionFactory sessionFactory;
@@ -49,6 +48,7 @@ public class Tasks {
             if (topic.getMessages().size() >= 3) {
                 topic.setRating(topic.getMessages().size() / 3);
                 session.update(topic);
+                System.out.println("Топику \"" + topic.getName() + "\" установлен рейтинг: " + topic.getMessages().size() / 3);
             }
         }
     }
@@ -59,7 +59,8 @@ public class Tasks {
 
         for (Section section : sections) {
             System.out.println("Раздел " + section.getName() + ":");
-            System.out.println(session.createQuery("SELECT AVG(rating) FROM Topic WHERE section_id = :section")
+            section.getTopics().forEach(t -> System.out.println("\"" + t.getName() + "\" (" + t.getRating() + ")"));
+            System.out.println("Средний рейтинг: " + session.createQuery("SELECT AVG(rating) FROM Topic WHERE section_id = :section")
                     .setParameter("section", section.getId())
                     .list()
                     .get(0));
