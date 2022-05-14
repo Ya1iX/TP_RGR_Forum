@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 12 2022 г., 01:50
+-- Время создания: Май 14 2022 г., 20:03
 -- Версия сервера: 8.0.24
 -- Версия PHP: 7.1.33
 
@@ -97,17 +97,20 @@ INSERT INTO `t_topics` (`id`, `name`, `rating`, `section_id`) VALUES
 
 CREATE TABLE `t_users` (
   `id` bigint NOT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `username` varchar(255) NOT NULL
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `authority` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `mail` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Дамп данных таблицы `t_users`
 --
 
-INSERT INTO `t_users` (`id`, `password`, `username`) VALUES
-(1, '$2a$08$7A6UGQbX0HDCS83IRwqbWu6hf4hQiCBxCm3cgsVTZJz4kOuwP9ZB2', 'user'),
-(2, '$2a$08$dbEukibuSZQoGbDmnP8yd.GQTVMAmIXLTVf1yvqmmTtOZQr9SQc1C', 'Farmer');
+INSERT INTO `t_users` (`id`, `password`, `username`, `authority`, `mail`) VALUES
+(1, '$2a$10$I0BOCCDqRH6905RIlUmgd.2L008fmT3QvFtjEynyJQ2WoKDFRNGo6', 'user', 'ROLE_USER', 'user@forum.loc'),
+(2, '$2a$08$dbEukibuSZQoGbDmnP8yd.GQTVMAmIXLTVf1yvqmmTtOZQr9SQc1C', 'Farmer', 'ROLE_USER', 'farmer@forum.loc'),
+(3, '$2a$10$jrryFNptnoGWwyWhxc47eeeHpin/LPOut7J221Xv4DB3qTswVcvJS', 'admin', 'ROLE_ADMIN', 'admin@forum.loc');
 
 --
 -- Индексы сохранённых таблиц
@@ -156,7 +159,7 @@ ALTER TABLE `t_messages`
 -- AUTO_INCREMENT для таблицы `t_sections`
 --
 ALTER TABLE `t_sections`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `t_topics`
@@ -168,7 +171,7 @@ ALTER TABLE `t_topics`
 -- AUTO_INCREMENT для таблицы `t_users`
 --
 ALTER TABLE `t_users`
-  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
