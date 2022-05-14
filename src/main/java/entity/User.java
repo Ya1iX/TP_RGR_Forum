@@ -21,6 +21,12 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Message> messages;
 
+    @NotNull
+    private String authority;
+
+    @NotNull
+    private String mail;
+
     public User() {
     }
 
