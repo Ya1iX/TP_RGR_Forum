@@ -70,7 +70,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "[ID: " + id +
+        return "User[ID: " + id +
                 ", username: " + username +
                 ", messages: " + messages.size() + "]";
     }

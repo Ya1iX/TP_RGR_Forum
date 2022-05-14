@@ -77,7 +77,7 @@ public class Topic {
 
     @Override
     public String toString() {
-        return "[ID: " + id +
+        return "Topic[ID: " + id +
                 ", name: " + name +
                 ", rating: " + rating +
                 ", section: " + section +

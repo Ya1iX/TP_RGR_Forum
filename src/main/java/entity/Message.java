@@ -79,7 +79,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return "[ID: " + id +
+        return "Message[ID: " + id +
                 ", date: " + date +
                 ", text: " + text +
                 ", topic: " + topic.getName() +

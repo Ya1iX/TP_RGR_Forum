@@ -52,7 +52,7 @@ public class Section {
 
     @Override
     public String toString() {
-        return "[ID: " + id +
+        return "Section[ID: " + id +
                 ", name: " + name +
                 ", topics: " + topics.size() +"]";
     }
